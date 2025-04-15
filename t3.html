@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Interactif</title>
+  <script>
+    function lancerQuiz() {
+      const QUESTIONS = [
+        ["Quelle est la capitale de la France ?", "Paris"],
+        ["Combien font 2 + 2 ?", "4"],
+        ["Quelle est la couleur du ciel par temps clair ?", "bleu"],
+        ["Combien de jours y a-t-il dans une semaine ?", "7"],
+        ["Quel est le langage utilisé pour créer des pages web ?", "HTML"]
+      ];
+
+      let score = 0;
+
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        let userAnswer = prompt(QUESTIONS[i][0]);
+
+        if (userAnswer === null) {
+          alert("Quiz annulé.");
+          return;
+        }
+
+        if (userAnswer.trim().toLowerCase() === QUESTIONS[i][1].toLowerCase()) {
+          alert("Réponse juste !");
+          score++;
+        } else {
+          alert("Réponse fausse. La bonne réponse était : " + QUESTIONS[i][1]);
+        }
+      }
+
+      alert("Vous avez répondu correctement à " + score + " questions sur " + QUESTIONS.length + ".");
+    }
+  </script>
+</head>
+<body>
+  <h1>Quiz Interactif</h1>
+  <button onclick="lancerQuiz()">Commencer le Quiz</button>
+</body>
+</html>

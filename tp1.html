@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Opérations sur deux nombres</title>
+</head>
+<body>
+
+  <h1>Calculatrice simple</h1>
+  <button onclick="calculer()">Saisir deux nombres</button>
+
+  <script>
+    function calculer() {
+      let a = prompt("Entrez le premier nombre :");
+      let b = prompt("Entrez le deuxième nombre :");
+
+      a = parseFloat(a);
+      b = parseFloat(b);
+
+      if (isNaN(a) || isNaN(b)) {
+        console.log("Veuillez entrer des nombres valides.");
+        return;
+      }
+
+      console.log("Résultats des opérations :");
+      console.log("Somme : " + (a + b));
+      console.log("Différence : " + (a - b));
+      console.log("Produit : " + (a * b));
+
+      if (b !== 0) {
+        console.log("Quotient : " + (a / b));
+      } else {
+        console.log("Impossible de diviser par zéro !");
+      }
+    }
+  </script>
+
+</body>
+</html>

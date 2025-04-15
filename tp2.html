@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Jeu de devinette</title>
+</head>
+<body>
+
+  <h1>Jeu : Devinez le nombre</h1>
+  <button onclick="jouer()">Commencer le jeu</button>
+
+  <script>
+    function jouer() {
+      const nombreADeviner = Math.floor(Math.random() * 10) + 1;
+      let tentative = 0;
+      let trouve = false;
+
+      while (!trouve) {
+        let proposition = prompt("Devinez un nombre entre 1 et 10 :");
+        tentative++;
+
+        if (proposition === null) {
+          alert("Jeu annulé.");
+          break;
+        }
+
+        proposition = parseInt(proposition);
+
+        if (isNaN(proposition) || proposition < 1 || proposition > 10) {
+          alert("Veuillez entrer un nombre valide entre 1 et 10.");
+        } else if (proposition < nombreADeviner) {
+          alert("C'est plus grand !");
+        } else if (proposition > nombreADeviner) {
+          alert("C'est plus petit !");
+        } else {
+          alert(`Bravo ! Vous avez trouvé le nombre en ${tentative} tentative(s).`);
+          trouve = true;
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
